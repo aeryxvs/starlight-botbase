@@ -1,0 +1,13 @@
+{
+  "$schema": "./src/components/botconfig.schema.json",
+
+  "appToken": "",
+  "appServer": 0,
+  "appLoggingWebhook": "",
+  "appVersion": "0.0.0",
+  "appBuild": 0,
+
+  "botStatus": "",
+  "botStatusType": "none",
+  "botShowAs": "online"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "starlight-bot-base",
+  "version": "0.1.0",
+  "description": "A base for developing Discord Bots. Based on Eris.",
+  "license": "MIT",
+  "main": "src/index.cjs",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.cjs",
+    "start-dev": "NODE_ENV=development node src/index.cjs",
+    "lint": "eslint ./src",
+    "lint-fix": "eslint --fix ./src"
+  },
+  "private": false,
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "dependencies": {
+    "eris": "^0.18.0",
+    "eslint": "^9.25.1",
+    "json5": "^2.2.3"
+  }
+}
