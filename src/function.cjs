@@ -6,9 +6,9 @@ const commands = [
 	{
 		name: "ping", description: "Ping, pong...!",
 		type: Constants.ApplicationCommandTypes.CHAT_INPUT,
-		function: (interaction) => {
+		function: async (interaction) => {
 			// Your code here.
-			interaction.createMessage("Pong!");
+			await interaction.createMessage("Pong!");
 		}
 	},
 	{
@@ -22,10 +22,10 @@ const commands = [
 				required: true,
 			}
 		],
-		function: (interaction) => {
+		function: async (interaction) => {
 			// Your code here.
 			const text = interaction.data.options.find((opt) => opt.name === "message");
-			interaction.createMessage(text.value);
+			await interaction.createMessage(text.value);
 		}
 	},
 ];
@@ -110,12 +110,12 @@ async function main () {
 		console.log(`[INFO] Received command: ${name}`);
 
 		try {
-			commands.some((c) => {
+			for (const c of commands) {
 				if (c.name === name) {
-					c.function(interaction);
-
+					await c.function(interaction);
+					break;
 				}
-			});
+			}
 		} catch (error) {
 			await interaction.createMessage(`An error occurred while executing command:\n\`\`\`\n${error}\n\`\`\``);
 			console.log(error);
